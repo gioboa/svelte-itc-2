@@ -12,7 +12,7 @@
         {title}
       </div>
       <div class="temp">
-        <!-- <img src="https://s5.postimg.cc/yzcm7htyb/image.png" alt="" width="60" /> -->
+        <img src="images/cloudy.png" alt="" width="60" />
         18&deg;
       </div>
     </div>
