@@ -1,23 +1,28 @@
 <script>
   import './App.css';
+  import LeftPanel from './components/LeftPanel.svelte';
+  import RightPanel from './components/RightPanel.svelte';
 
-  export let title;
+  let currentDate = new Date().toLocaleTimeString();
+  let city = 'London';
+  let data = {
+    img: 'images/sun.png',
+    deg: '22',
+  };
+  let cityImg = 'images/parigi.png';
+
+  const parentFunctions = (event) => {
+    console.log(`parent log - ${event.detail.data}`);
+  };
 </script>
 
 <main>
   <div class="widget">
-    <div class="left-panel panel">
-      <div class="date">Monday, 20 Aug 2018</div>
-      <div class="city">
-        {title}
-      </div>
-      <div class="temp">
-        <img src="images/cloudy.png" alt="" width="60" />
-        18&deg;
-      </div>
-    </div>
-    <div class="right-panel panel">
-      <img src="images/london.png" alt="" width="120" />
-    </div>
+    <LeftPanel date={currentDate} {city} on:message={parentFunctions} />
+    <RightPanel />
+  </div>
+  <div class="widget">
+    <LeftPanel date={currentDate} {...data} />
+    <RightPanel {cityImg} />
   </div>
 </main>
